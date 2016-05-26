@@ -71,8 +71,6 @@ def alphabeta_full_search(state, game):
     return action
 
 def alphabeta_search(state, game, d, eval_fn, playerChoosed, difficultyLevel, cutoff_test=None):
-
-    
     """Search game to determine best action; use alpha-beta pruning.
     This version cuts off search and uses an evaluation function."""
 
