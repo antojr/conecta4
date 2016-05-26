@@ -15,19 +15,23 @@ while not difficultyChoosed:
         print "Tiene que escoger 1: Facil, 2: Medio o 3: Dificil"
 
 while not playerChoosed:
-    player = raw_input("Elija quien empieza primero: O: usted o X: maquina ==> ")
-    if player == 'X' or player == 'O' or player == 'o' or player == 'x':
+    choice = int(raw_input("Elija quien empieza primero: 1: usted o 2: maquina ==> "))
+    if choice == 1:
+        player = 'O'
         playerChoosed = True
+    elif choice == 2:
+        player = 'X'
+        playerChoosed = True
+
     else:
-        print "Tiene que escoger O: usted o X: maquina"
+        print "Tiene que escoger 1: usted o 2: maquina"
 
 state.to_move = player
-startPlayer=player
 while True:
     print "Jugador a mover:", player
     game.display(state)
 
-    if player == 'O' or player == 'o':
+    if player == 'O':
         col_str = raw_input("Movimiento: ")
         coor = int(str(col_str).strip())
         x = coor
@@ -43,10 +47,10 @@ while True:
         print "Thinking..."
         #move = games.minimax_decision(state, game)
         #move = games.alphabeta_full_search(state, game)
-        if difficultyChoosed == 3:
-            move = games.alphabeta_search(state, game, 3, heuristic.calculateHeuristic, player, 3)
-        if difficultyChoosed == 2:
-            move = games.alphabeta_search(state, game, 2, heuristic.calculateHeuristic, player, 2)
+        if difficultyLevel == 3:
+            move = games.alphabeta_search(state, game, 3, heuristic.calculateHeuristic, player, difficultyLevel)
+        if difficultyLevel == 2:
+            move = games.alphabeta_search(state, game, 2, heuristic.calculateHeuristic, player, difficultyLevel)
         else:
             move = games.alphabeta_search(state, game, 1, None, player, 1)
 
@@ -56,8 +60,4 @@ while True:
     if game.terminal_test(state):
         game.display(state)
         print "Final de la partida"
-        if player != startPlayer:
-            print "Has ganado"
-        else:
-            print "Has perdido"
         break
