@@ -11,7 +11,7 @@ def punctuation(state, coord, player, (mov_x, mov_y)):
     while (8 > x > 0) and (7 > y > 0):
         if state.board.get((x, y)) == player:
             line_of += 1
-            value += 200
+            value += 150
         if state.board.get((x, y)) is None:
             line_of += 1
             value += 10
@@ -25,7 +25,7 @@ def punctuation(state, coord, player, (mov_x, mov_y)):
     while (8 > x > 0) and (7 > y > 0):
         if state.board.get((x, y)) == player:
             line_of += 1
-            value += 200
+            value += 150
         if state.board.get((x, y)) is None:
             value += 1
             line_of += 10
