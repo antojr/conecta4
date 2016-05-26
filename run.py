@@ -48,9 +48,9 @@ while True:
         #move = games.minimax_decision(state, game)
         #move = games.alphabeta_full_search(state, game)
         if difficultyLevel == 3:
-            move = games.alphabeta_search(state, game, 3, heuristic.calculateHeuristic, player, difficultyLevel)
+            move = games.alphabeta_search(state, game, 3, heuristic.calculateHeuristic, player, 2)
         if difficultyLevel == 2:
-            move = games.alphabeta_search(state, game, 2, heuristic.calculateHeuristic, player, difficultyLevel)
+            move = games.alphabeta_search(state, game, 2, heuristic.calculateHeuristic, player, 1)
         else:
             move = games.alphabeta_search(state, game, 1, None, player, 1)
 
