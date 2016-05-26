@@ -58,24 +58,24 @@ def calculateHeuristic(state, player, dificultad):
 
     for i in l_moves:
         x, y = i
+        
+        if dificultad == 1:
+            value += punctuation(state, (x, y), player, (1, 0)) 
+            value += punctuation(state, (x, y), player, (0, 1))  
+            value += punctuation(state, (x, y), player, (1, 1))  
+            value += punctuation(state, (x, y), player, (1, -1)) 
 
+            value -= punctuation(state, (x, y), enemy, (1, 0))
+            
         if dificultad == 2:
-            value += punctuation(state, (x, y), player, (1, 0)) # --
-            value += punctuation(state, (x, y), player, (0, 1)) # |
-            value += punctuation(state, (x, y), player, (1, 1)) # /
-            value += punctuation(state, (x, y), player, (1, -1)) # \
+            value += punctuation(state, (x, y), player, (1, 0))
+            value += punctuation(state, (x, y), player, (0, 1)) 
+            value += punctuation(state, (x, y), player, (1, 1)) 
+            value += punctuation(state, (x, y), player, (1, -1)) 
 
             value -= punctuation(state, (x, y), enemy, (1, 0))
             value -= punctuation(state, (x, y), enemy, (0, 1))
             value -= punctuation(state, (x, y), enemy, (1, 1))
             value -= punctuation(state, (x, y), enemy, (1, -1))
-
-        if dificultad == 1:
-            value += punctuation(state, (x, y), player, (1, 0))  # --
-            value += punctuation(state, (x, y), player, (0, 1))  # |
-            value += punctuation(state, (x, y), player, (1, 1))  # /
-            value += punctuation(state, (x, y), player, (1, -1))  # \
-
-            value -= punctuation(state, (x, y), enemy, (1, 0))
 
     return value
