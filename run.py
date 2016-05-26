@@ -17,7 +17,7 @@ while not difficultyChoosed:
 
 while not playerChoosed:
     playerStart = raw_input("Elija quien empieza primero: O: usted o X: maquina ==> ")
-    if playerStart == 'X' or 'O':
+    if playerStart == 'X' or 'O' or 'o' or 'x':
         playerChoosed = True
     else:
         print "Tiene que escoger O: usted o X: maquina"
@@ -26,7 +26,7 @@ while playerChoosed:
     print "Jugador a mover:", game.to_move(state)
     game.display(state)
 
-    if player == 'O':
+    if player == 'O' or 'o':
         col_str = raw_input("Movimiento: ")
         coor = int(str(col_str).strip())
         x = coor
